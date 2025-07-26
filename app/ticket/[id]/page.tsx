@@ -6,15 +6,13 @@ import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { TicketDetail } from "@/components/ticket-detail"
 
-// Define los props esperados por la página dinámica
-type PageProps = {
-  params: {
-    id: string
-  }
+// Este tipo es correcto para páginas dinámicas en el App Router
+interface TicketPageProps {
+  params: { id: string }
 }
 
-// Exporta el componente usando el tipo PageProps
-export default function TicketPage({ params }: PageProps) {
+// 👇 Esta es la función de página esperada por Next.js App Router
+export default function TicketPage({ params }: TicketPageProps) {
   return (
     <div className="container mx-auto py-10">
       <Link href="/">
@@ -23,7 +21,6 @@ export default function TicketPage({ params }: PageProps) {
           Volver
         </Button>
       </Link>
-
       <TicketDetail id={params.id} />
     </div>
   )

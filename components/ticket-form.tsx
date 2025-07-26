@@ -59,7 +59,7 @@ export function TicketForm() {
       // Redireccionar a la página principal
       router.push("/")
     } catch (err) {
-      setError("Ocurrió un error al crear el ticket")
+      console.error(err)
     } finally {
       setIsSubmitting(false)
     }

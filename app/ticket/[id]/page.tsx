@@ -1,10 +1,20 @@
+// app/ticket/[id]/page.tsx
+
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { TicketDetail } from "@/components/ticket-detail"
 
-export default function TicketPage({ params }: { params: { id: string } }) {
+// Define los props esperados por la página dinámica
+type PageProps = {
+  params: {
+    id: string
+  }
+}
+
+// Exporta el componente usando el tipo PageProps
+export default function TicketPage({ params }: PageProps) {
   return (
     <div className="container mx-auto py-10">
       <Link href="/">
@@ -13,6 +23,7 @@ export default function TicketPage({ params }: { params: { id: string } }) {
           Volver
         </Button>
       </Link>
+
       <TicketDetail id={params.id} />
     </div>
   )
